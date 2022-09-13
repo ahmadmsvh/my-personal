@@ -1,9 +1,6 @@
 import pandas as pd
-import os
 from tkinter import *
 from tkinter import filedialog
-from tkinter.filedialog import askopenfile
-
 
 class ExcelDetector:
     def __init__(self):
@@ -19,7 +16,6 @@ class ExcelDetector:
         self.detbtn = Button(self.root, text='Detect',
                          width=20, command=lambda: self.startDetecting())
         self.detbtn.pack(pady=30)
-
         self.upbtn = Button(self.root, text='Upload File',
                        width=20, command=lambda: self.upload_file())
         self.upbtn.pack(pady=2)
@@ -44,7 +40,6 @@ class ExcelDetector:
                           index=range(1, len(number_set) + 1))
 
         df = df.sort_values(by='تکرار', ascending=False)
-        # df.to_excel(f'{directory}/result/result.xlsx', index=False, header=False)
         self.textbox.insert('1.0', f'{df}')
         return df
 
