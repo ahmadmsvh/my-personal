@@ -20,15 +20,12 @@ class ExcelDetector:
                        width=20, command=lambda: self.upload_file())
         self.upbtn.pack(pady=2)
 
-
         self.root.mainloop()
 
     def upload_file(self):
         file = filedialog.askopenfilename()
         data = pd.read_excel(file)
         self.numbers_list.extend(data['شماره کارت'])
-
-
     def startDetecting(self):
         number_set = set(self.numbers_list)
         result = []
