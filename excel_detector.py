@@ -8,10 +8,11 @@ from tkinter.filedialog import askopenfile
 class ExcelDetector:
     def __init__(self):
         self.root = Tk()
+        self.root.title('excel detector')
         self.root.geometry('700x500')
         self.lable = Label(self.root, text='result:')
         self.lable.pack()
-        self.textbox = Text(self.root, height=10, width=100)
+        self.textbox = Text(self.root, height=15, width=100)
         self.textbox.pack(padx=30, pady=10)
         self.numbers_list = []
 
@@ -27,10 +28,6 @@ class ExcelDetector:
         self.root.mainloop()
 
     def upload_file(self):
-        self.upbtn = Button(self.root, text='Upload File',
-                         width=20, command=lambda: self.upload_file())
-        self.upbtn.pack(pady=2)
-
         file = filedialog.askopenfilename()
         data = pd.read_excel(file)
         self.numbers_list.extend(data['شماره کارت'])
